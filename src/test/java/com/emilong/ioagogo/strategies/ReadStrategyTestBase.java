@@ -7,7 +7,7 @@ import java.util.Random;
 import org.junit.Before;
 import org.junit.Rule;
 
-public class ReadStrategyTestBase {
+public abstract class ReadStrategyTestBase {
   @Rule
   public ReadStrategyTemporaryFile readStrategyTemporaryFile
     = new ReadStrategyTemporaryFile();
@@ -19,4 +19,6 @@ public class ReadStrategyTestBase {
   public void setupInputFile() {
     inputFile = readStrategyTemporaryFile.getInputFile();
   }
+
+  protected abstract IReadStrategy getStrategy();
 }

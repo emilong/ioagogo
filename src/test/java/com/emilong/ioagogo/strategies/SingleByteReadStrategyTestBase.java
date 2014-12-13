@@ -17,8 +17,6 @@ import static org.junit.Assert.assertThat;
 import static com.emilong.ioagogo.strategies.ConstantByteArrayMatcher.containsOnly;
 
 public abstract class SingleByteReadStrategyTestBase extends ReadStrategyTestBase {
-  protected abstract IReadStrategy getStrategy();
-
   @Test
   public void shouldSupportOneByteReads() {
     assertThat(getStrategy().supportsBufferSize(1), equalTo(true));
