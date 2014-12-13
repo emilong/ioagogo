@@ -22,8 +22,7 @@ public class TaggedByteArrayMatcher extends TypeSafeMatcher<byte[]> {
       int current = (array[i] & 0xFF);
       if (current == value) {
         return true;
-      }
-      else if (current != 0) {
+      } else if (current != 0) {
         return false;
       }
     }

@@ -1,11 +1,11 @@
 package com.emilong.ioagogo.strategies;
 
+import org.junit.rules.TemporaryFolder;
+
 import java.io.File;
 import java.io.FileOutputStream;
 
 import java.util.Random;
-
-import org.junit.rules.TemporaryFolder;
 
 public class ReadStrategyTemporaryFile extends TemporaryFolder {
   public static final int DEFAULT_SIZE = 1 << 16;
@@ -36,13 +36,12 @@ public class ReadStrategyTemporaryFile extends TemporaryFolder {
     try {
       outputStream = new FileOutputStream(inputFile);
 
-      for (int i = 0; i < size-1; i++) {
+      for (int i = 0; i < size - 1; i++) {
         outputStream.write(0);
       }
 
       outputStream.write(value);
-    }
-    finally {
+    } finally {
       if (outputStream != null) {
         outputStream.close();
       }

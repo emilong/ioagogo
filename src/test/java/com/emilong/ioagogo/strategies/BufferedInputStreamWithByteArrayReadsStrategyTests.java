@@ -1,7 +1,7 @@
 package com.emilong.ioagogo.strategies;
 
 public class BufferedInputStreamWithByteArrayReadsStrategyTests
-  extends ArrayReadStrategyTestBase {
+    extends ArrayReadStrategyTestBase {
 
   @Override
   public IReadStrategy getStrategy() {

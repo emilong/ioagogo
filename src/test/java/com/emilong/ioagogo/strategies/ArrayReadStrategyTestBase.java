@@ -1,14 +1,14 @@
 package com.emilong.ioagogo.strategies;
 
-import java.io.IOException;
+import static com.emilong.ioagogo.strategies.TaggedByteArrayMatcher.taggedWith;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertThat;
 
-import static com.emilong.ioagogo.strategies.TaggedByteArrayMatcher.taggedWith;
+import org.junit.Test;
+
+import java.io.IOException;
 
 public abstract class ArrayReadStrategyTestBase extends ReadStrategyTestBase {
   @Test

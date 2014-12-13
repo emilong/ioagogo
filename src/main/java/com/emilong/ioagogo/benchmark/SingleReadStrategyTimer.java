@@ -22,6 +22,13 @@ public class SingleReadStrategyTimer {
     this.readStrategy = readStrategy;
   }
 
+  /**
+    * Performs a run with the given strategy for each of the given buffer
+    * sizes. Performs at most one run per buffer size. Will not perform any
+    * runs which the given strategy does not support. Returns the
+    * TimerResults for each of the runs performed, potentially fewer than
+    * the length bufferSizes array.
+    */
   public List<TimerResult> performRuns(int[] bufferSizes) throws IOException {
     List<TimerResult> results = new ArrayList<TimerResult>(bufferSizes.length);
 

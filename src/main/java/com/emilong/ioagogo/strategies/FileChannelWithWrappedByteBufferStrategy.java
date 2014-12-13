@@ -10,12 +10,11 @@ import java.nio.ByteBuffer;
   * byte array.
 ***/
 public class FileChannelWithWrappedByteBufferStrategy
-  extends FileChannelWithByteBufferStrategy {
+    extends FileChannelWithByteBufferStrategy {
 
   @Override
   protected ByteBufferFactory createByteBufferFactory(int bufferSize)
-    throws IOException
-  {
+    throws IOException {
     return new WrappedByteBufferFactory(bufferSize);
   }
 

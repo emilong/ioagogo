@@ -9,12 +9,11 @@ import java.nio.ByteBuffer;
   * through a FileChannel with a normal allocated ByteBuffer.
 ***/
 public class FileChannelWithAllocatedByteBufferStrategy
-  extends FileChannelWithByteBufferStrategy {
+    extends FileChannelWithByteBufferStrategy {
 
   @Override
   protected ByteBufferFactory createByteBufferFactory(int bufferSize)
-    throws IOException
-  {
+      throws IOException {
     return new AllocatedByteBufferFactory(bufferSize);
   }
 

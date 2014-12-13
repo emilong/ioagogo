@@ -1,16 +1,16 @@
 package com.emilong.ioagogo.strategies;
 
+import org.junit.Before;
+import org.junit.Rule;
+
 import java.io.File;
 
 import java.util.Random;
 
-import org.junit.Before;
-import org.junit.Rule;
-
 public abstract class ReadStrategyTestBase {
   @Rule
   public ReadStrategyTemporaryFile readStrategyTemporaryFile
-    = new ReadStrategyTemporaryFile();
+      = new ReadStrategyTemporaryFile();
 
   protected final Random random = new Random();
   protected File inputFile;

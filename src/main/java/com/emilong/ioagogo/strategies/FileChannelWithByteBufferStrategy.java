@@ -33,8 +33,7 @@ public abstract class FileChannelWithByteBufferStrategy implements IReadStrategy
            n = fileChannel.read(byteBuffer)) {
         byteBuffer.position(0);
       }
-    }
-    finally {
+    } finally {
       if (inputStream != null) {
         inputStream.close();
       }

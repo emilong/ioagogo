@@ -17,6 +17,10 @@ public class RandomFileFactory implements IFileFactory {
   private final File file;
   private final Random random = new Random();
 
+  /**
+    * Creates a new RandomFileFactory with the given fileSize and parent
+    * directory. May throw IOException if unable to create the file.
+    */
   public RandomFileFactory(int fileSize, File directory) throws IOException {
     file = File.createTempFile(PREFIX, SUFFIX, directory);
 
@@ -27,8 +31,7 @@ public class RandomFileFactory implements IFileFactory {
       for (int i = 0; i < fileSize; i++) {
         outputStream.write(random.nextInt(256) & 0xFF);
       }
-    }
-    finally {
+    } finally {
       if (outputStream != null) {
         outputStream.close();
       }

@@ -26,14 +26,13 @@ public class FileChannelWithMappedByteBufferStrategy implements IReadStrategy {
       inputStream = new FileInputStream(inputFile);
       FileChannel fileChannel = inputStream.getChannel();
       ByteBuffer byteBuffer =
-        fileChannel.map(FileChannel.MapMode.READ_ONLY, 0L, fileChannel.size());
+          fileChannel.map(FileChannel.MapMode.READ_ONLY, 0L, fileChannel.size());
 
       while (byteBuffer.hasRemaining()) {
         int readSize = Math.min(byteBuffer.remaining(), bufferSize);
         byteBuffer.get(buffer, 0, readSize);
       }
-    }
-    finally {
+    } finally {
       if (inputStream != null) {
         inputStream.close();
       }

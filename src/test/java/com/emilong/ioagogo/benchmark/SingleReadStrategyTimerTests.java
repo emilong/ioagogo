@@ -1,22 +1,7 @@
 package com.emilong.ioagogo.benchmark;
 
-import com.emilong.ioagogo.strategies.IReadStrategy;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import java.util.List;
-import java.util.Random;
-
-import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.Matchers.is;
-
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
 
 import static org.junit.Assert.assertThat;
 
@@ -25,16 +10,27 @@ import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Matchers.intThat;
 
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.emilong.ioagogo.strategies.IReadStrategy;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+import java.io.File;
+import java.io.IOException;
+
+import java.util.List;
+import java.util.Random;
+
 public class SingleReadStrategyTimerTests {
-  private final int MIN_RUNS = 2;
-  private final int MAX_RUNS = 32;
-  private final int MAX_BUFFER_INCREMENT = 1 << 16;
+  private static final int MIN_RUNS = 2;
+  private static final int MAX_RUNS = 32;
+  private static final int MAX_BUFFER_INCREMENT = 1 << 16;
 
   private final Random random = new Random();
 
@@ -49,13 +45,16 @@ public class SingleReadStrategyTimerTests {
 
   private SingleReadStrategyTimer timer;
 
-  @Before
-  public void setupStrategy() throws IOException {
+  private void setupMocks() throws IOException {
     MockitoAnnotations.initMocks(this);
 
     when(fileFactory.getFile()).thenReturn(file);
     when(strategy.supportsBufferSize(anyInt())).thenReturn(true);
+  }
 
+  @Before
+  public void setupTimer() throws IOException {
+    setupMocks();
     timer = new SingleReadStrategyTimer(fileFactory, strategy);
   }
 
@@ -66,8 +65,8 @@ public class SingleReadStrategyTimerTests {
 
     bufferSizes[0] = 1;
     for (int i = 1; i < bufferSizes.length; i++) {
-      bufferSizes[i] = bufferSizes[i-1] +
-                       random.nextInt(MAX_BUFFER_INCREMENT);
+      bufferSizes[i] = bufferSizes[i - 1]
+        + random.nextInt(MAX_BUFFER_INCREMENT);
     }
 
     return bufferSizes;

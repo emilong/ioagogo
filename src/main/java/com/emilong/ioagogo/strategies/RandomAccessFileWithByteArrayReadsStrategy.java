@@ -24,8 +24,7 @@ public class RandomAccessFileWithByteArrayReadsStrategy implements IReadStrategy
       randomAccessFile = new RandomAccessFile(inputFile, "r");
 
       while (randomAccessFile.read(buffer, 0, bufferSize) >= 0) {}
-    }
-    finally {
+    } finally {
       if (randomAccessFile != null) {
         randomAccessFile.close();
       }

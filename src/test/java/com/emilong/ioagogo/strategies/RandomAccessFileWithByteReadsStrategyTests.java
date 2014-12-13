@@ -1,7 +1,7 @@
 package com.emilong.ioagogo.strategies;
 
 public class RandomAccessFileWithByteReadsStrategyTests
-  extends SingleByteReadStrategyTestBase {
+    extends SingleByteReadStrategyTestBase {
 
   @Override
   public IReadStrategy getStrategy() {

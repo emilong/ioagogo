@@ -1,7 +1,7 @@
 package com.emilong.ioagogo.strategies;
 
-import java.io.File;
 import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
@@ -25,8 +25,7 @@ public class BufferedInputStreamWithByteArrayReadsStrategy implements IReadStrat
       inputStream = new BufferedInputStream(new FileInputStream(inputFile));
 
       while (inputStream.read(buffer, 0, bufferSize) >= 0) {}
-    }
-    finally {
+    } finally {
       if (inputStream != null) {
         inputStream.close();
       }

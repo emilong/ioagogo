@@ -1,35 +1,19 @@
 package com.emilong.ioagogo.benchmark;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import java.util.List;
-import java.util.Random;
-
-import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-import static org.junit.Assert.assertThat;
 import org.junit.rules.TemporaryFolder;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyInt;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Matchers.intThat;
+import java.io.File;
+import java.io.IOException;
 
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import java.util.Random;
 
 public class RandomFileFactoryTests {
   @Rule
@@ -41,6 +25,9 @@ public class RandomFileFactoryTests {
   private File folder;
   private File file;
 
+  /**
+    * Setup the file factory in the temporary folder.
+    */
   @Before
   public void setupFileFactory() throws IOException {
     fileSize = 2 + random.nextInt(1 << 16);

@@ -24,8 +24,7 @@ public class FileInputStreamWithByteArrayReadsStrategy implements IReadStrategy 
       inputStream = new FileInputStream(inputFile);
 
       while (inputStream.read(buffer, 0, bufferSize) >= 0) {}
-    }
-    finally {
+    } finally {
       if (inputStream != null) {
         inputStream.close();
       }
