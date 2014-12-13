@@ -1,10 +1,10 @@
 package com.emilong.ioagogo.strategies;
 
-public class FileInputStreamWithByteReadsStrategyTests
+public class BufferedInputStreamWithByteReadsStrategyTests
   extends SingleByteReadStrategyTestBase {
 
   @Override
   public IReadStrategy getStrategy() {
-    return new FileInputStreamWithByteReadsStrategy();
+    return new BufferedInputStreamWithByteReadsStrategy();
   }
 }
