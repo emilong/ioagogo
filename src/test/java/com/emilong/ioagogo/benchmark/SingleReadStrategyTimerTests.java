@@ -1,4 +1,4 @@
-package com.emilong.ioagogo.timers;
+package com.emilong.ioagogo.benchmark;
 
 import com.emilong.ioagogo.strategies.IReadStrategy;
 
@@ -50,7 +50,7 @@ public class SingleReadStrategyTimerTests {
   private SingleReadStrategyTimer timer;
 
   @Before
-  public void setupStrategy() {
+  public void setupStrategy() throws IOException {
     MockitoAnnotations.initMocks(this);
 
     when(fileFactory.getFile()).thenReturn(file);

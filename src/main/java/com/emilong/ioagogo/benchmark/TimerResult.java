@@ -1,4 +1,4 @@
-package com.emilong.ioagogo.timers;
+package com.emilong.ioagogo.benchmark;
 
 public class TimerResult {
   private final int bufferSize;

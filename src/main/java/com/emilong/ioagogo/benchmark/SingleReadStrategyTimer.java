@@ -1,4 +1,4 @@
-package com.emilong.ioagogo.timers;
+package com.emilong.ioagogo.benchmark;
 
 import com.emilong.ioagogo.strategies.IReadStrategy;
 
