@@ -23,7 +23,7 @@ public class FileInputStreamWithByteReadsStrategy implements IReadStrategy {
     try {
       inputStream = new FileInputStream(inputFile);
 
-      for (int i = 0; i < buffer.length; i++) {
+      for (int i = 0; i < inputFile.length(); i++) {
         buffer[0] = (byte) inputStream.read();
       }
     }

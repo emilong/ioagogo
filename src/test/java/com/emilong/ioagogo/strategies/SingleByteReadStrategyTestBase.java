@@ -14,7 +14,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertThat;
 
-import static com.emilong.ioagogo.strategies.ConstantByteArrayMatcher.containsOnly;
+import static com.emilong.ioagogo.strategies.TaggedByteArrayMatcher.taggedWith;
 
 public abstract class SingleByteReadStrategyTestBase extends ReadStrategyTestBase {
   @Test
@@ -32,6 +32,6 @@ public abstract class SingleByteReadStrategyTestBase extends ReadStrategyTestBas
     byte[] readBytes = getStrategy().readBytes(1, inputFile);
 
     assertThat(readBytes.length, equalTo(1));
-    assertThat(readBytes, containsOnly(readStrategyTemporaryFile.getValue()));
+    assertThat(readBytes, taggedWith(readStrategyTemporaryFile.getValue()));
   }
 }

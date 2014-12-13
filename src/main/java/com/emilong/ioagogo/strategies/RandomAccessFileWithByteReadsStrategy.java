@@ -1,15 +1,14 @@
 package com.emilong.ioagogo.strategies;
 
 import java.io.File;
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 
 /**
   * An IReadStrategy that reads the bytes from the given file one
-  * at a time through a BufferedInputStream.
+  * at a time through a RandomAccessFile.
 ***/
-public class BufferedInputStreamWithByteReadsStrategy implements IReadStrategy {
+public class RandomAccessFileWithByteReadsStrategy implements IReadStrategy {
   @Override
   public boolean supportsBufferSize(int bufferSize) {
     return bufferSize == 1;
@@ -19,18 +18,18 @@ public class BufferedInputStreamWithByteReadsStrategy implements IReadStrategy {
   public byte[] readBytes(int bufferSize, File inputFile) throws IOException {
     byte[] buffer = new byte[1];
 
-    BufferedInputStream inputStream = null;
+    RandomAccessFile randomAccessFile = null;
 
     try {
-      inputStream = new BufferedInputStream(new FileInputStream(inputFile));
+      randomAccessFile = new RandomAccessFile(inputFile, "r");
 
       for (int i = 0; i < inputFile.length(); i++) {
-        buffer[0] = (byte) inputStream.read();
+        buffer[0] = (byte) randomAccessFile.read();
       }
     }
     finally {
-      if (inputStream != null) {
-        inputStream.close();
+      if (randomAccessFile != null) {
+        randomAccessFile.close();
       }
     }
 

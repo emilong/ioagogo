@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertThat;
 
-import static com.emilong.ioagogo.strategies.ConstantByteArrayMatcher.containsOnly;
+import static com.emilong.ioagogo.strategies.TaggedByteArrayMatcher.taggedWith;
 
 public abstract class ArrayReadStrategyTestBase extends ReadStrategyTestBase {
   @Test
@@ -23,6 +23,6 @@ public abstract class ArrayReadStrategyTestBase extends ReadStrategyTestBase {
     byte[] readBytes = getStrategy().readBytes(bufferSize, inputFile);
 
     assertThat(readBytes.length, equalTo(bufferSize));
-    assertThat(readBytes, containsOnly(readStrategyTemporaryFile.getValue()));
+    assertThat(readBytes, taggedWith(readStrategyTemporaryFile.getValue()));
   }
 }

@@ -36,9 +36,11 @@ public class ReadStrategyTemporaryFile extends TemporaryFolder {
     try {
       outputStream = new FileOutputStream(inputFile);
 
-      for (int i = 0; i < size; i++) {
-        outputStream.write(value);
+      for (int i = 0; i < size-1; i++) {
+        outputStream.write(0);
       }
+
+      outputStream.write(value);
     }
     finally {
       if (outputStream != null) {
