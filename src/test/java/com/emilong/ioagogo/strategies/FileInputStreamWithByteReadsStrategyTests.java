@@ -45,7 +45,7 @@ public class FileInputStreamWithByteReadsStrategyTests {
   public void shouldReadTheFileCorrectly() throws IOException {
     byte[] readBytes = strategy.readBytes(1, inputFile);
 
-    assertThat((long) readBytes.length, equalTo(inputFile.length()));
+    assertThat(readBytes.length, equalTo(1));
     assertThat(readBytes, containsOnly(readStrategyTemporaryFile.getValue()));
   }
 }

@@ -8,7 +8,7 @@ import java.io.IOException;
 ***/
 public interface IReadStrategy extends IGogoStrategy {
   /**
-    * readBytes reads the entire given file into a byte array using
+    * readBytes reads the given file into a byte array using
     * the given buffer size, if supported. Call {@link supportsBufferSize(int)}
     * before calling readBytes or this method may throw an
     * UnsupportedOperationException if the buffer size is in appropriate
@@ -17,7 +17,9 @@ public interface IReadStrategy extends IGogoStrategy {
     * @param bufferSize the size of the buffer to use.
     * @param inputFile  the file to read from.
     * 
-    * @return the byte array with the full contents of the given file.
+    * @return the byte array of size bufferSize containing the last
+    *         bufferSize bytes of the file to use as validation that the
+    *         read was performed properly.
     *
   ***/
   byte[] readBytes(int bufferSize, File inputFile) throws IOException;

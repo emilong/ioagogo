@@ -16,7 +16,7 @@ public class FileInputStreamWithByteReadsStrategy implements IReadStrategy {
 
   @Override
   public byte[] readBytes(int bufferSize, File inputFile) throws IOException {
-    byte[] buffer = new byte[(int) inputFile.length()];
+    byte[] buffer = new byte[1];
 
     FileInputStream inputStream = null;
 
@@ -24,7 +24,7 @@ public class FileInputStreamWithByteReadsStrategy implements IReadStrategy {
       inputStream = new FileInputStream(inputFile);
 
       for (int i = 0; i < buffer.length; i++) {
-        buffer[i] = (byte) inputStream.read();
+        buffer[0] = (byte) inputStream.read();
       }
     }
     finally {
