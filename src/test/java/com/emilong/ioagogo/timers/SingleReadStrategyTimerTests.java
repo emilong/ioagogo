@@ -25,7 +25,8 @@ import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Matchers.intThat;
 
-import static org.mockito.Mockito.mock;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -37,18 +38,22 @@ public class SingleReadStrategyTimerTests {
 
   private final Random random = new Random();
 
+  @Mock
   private File file;
+
+  @Mock
   private IFileFactory fileFactory;
+
+  @Mock
   private IReadStrategy strategy;
+
   private SingleReadStrategyTimer timer;
 
   @Before
   public void setupStrategy() {
-    fileFactory = mock(IFileFactory.class);
-    file = mock(File.class);
-    when(fileFactory.getFile()).thenReturn(file);
+    MockitoAnnotations.initMocks(this);
 
-    strategy = mock(IReadStrategy.class);
+    when(fileFactory.getFile()).thenReturn(file);
     when(strategy.supportsBufferSize(anyInt())).thenReturn(true);
 
     timer = new SingleReadStrategyTimer(fileFactory, strategy);
