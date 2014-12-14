@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class RandomFileFactory implements IFileFactory {
   private static final String PREFIX = "ioagogo";
-  private static final String SUFFIX = "bin";
+  private static final String SUFFIX = ".bin";
 
   private final File file;
   private final Random random = new Random();
