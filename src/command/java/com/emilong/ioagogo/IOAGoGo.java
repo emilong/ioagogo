@@ -28,6 +28,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IOAGoGo {
+  // 4 KB
+  public static final int DEFAULT_MIN_POWER = 12;
+
   // 128 MB
   public static final int DEFAULT_MAX_POWER = 27;
 
@@ -89,7 +92,7 @@ public class IOAGoGo {
 
       fileFactory = new RandomFileFactory(fileSize, directory);
 
-      int minPower = 0;
+      int minPower = DEFAULT_MIN_POWER;
       int maxPower = DEFAULT_MAX_POWER;
 
       if (commandLine.hasOption("min")) {
