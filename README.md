@@ -23,12 +23,17 @@ Mac OSX 10.10.1, Mac Mini Server (Mid 2011), on a spinning, SATA disk,
 with Oracle Java 1.8.0\_25-b17, 64-Bit server VM:
 
 ![Mac OSX 10.10.1, Mac Mini Server (Mid 2011), on a spinning, SATA disk,
-with Oracle Java 1.8.0\_25-b17, 64-Bit server VM sample run](samples/IOAGoGo-MacOSX-Java1.8.0.svg)
+with Oracle Java 1.8.0\_25-b17, 64-Bit server VM sample run](https://cdn.rawgit.com/emilong/ioagogo/master/samples/IOAGoGo-MacOSX-Java1.8.0.svg)
+
+This run suggests that using a direct-allocated ByteBuffer with
+FileChannel reads of at least 32KB, but no more than 2MB is your best
+bet on this system.
 
 # Acknowledgements
 
-Thanks to David Robert Nadeau, Ph.D., whose fine article
-[Java tip: How to read files quickly](http://nadeausoftware.com/articles/2008/02/java_tip_how_read_files_quickly)inspired this library.
+Thanks to David Robert Nadeau, Ph.D., whose fine article,
+[Java tip: How to read files quickly](http://nadeausoftware.com/articles/2008/02/java_tip_how_read_files_quickly),
+inspired this library.
 
 # License
 
