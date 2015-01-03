@@ -31,4 +31,9 @@ public class FileChannelWithDirectByteBufferStrategy
       return buffer;
     }
   }
+
+  @Override
+  public String getDescription() {
+    return "FileChannel with direct allocated ByteBuffer";
+  }
 }

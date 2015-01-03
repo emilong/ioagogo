@@ -40,4 +40,9 @@ public class FileChannelWithMappedByteBufferStrategy implements IReadStrategy {
 
     return buffer;
   }
+
+  @Override
+  public String getDescription() {
+    return "FileChannel with MappedByteBuffer";
+  }
 }

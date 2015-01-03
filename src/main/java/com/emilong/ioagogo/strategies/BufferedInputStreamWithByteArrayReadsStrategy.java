@@ -33,4 +33,9 @@ public class BufferedInputStreamWithByteArrayReadsStrategy implements IReadStrat
 
     return buffer;
   }
+
+  @Override
+  public String getDescription() {
+    return "BufferedInputStream with byte array reads";
+  }
 }

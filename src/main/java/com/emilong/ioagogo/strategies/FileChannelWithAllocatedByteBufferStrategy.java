@@ -31,4 +31,9 @@ public class FileChannelWithAllocatedByteBufferStrategy
       return buffer;
     }
   }
+
+  @Override
+  public String getDescription() {
+    return "FileChannel with allocated ByteBuffer";
+  }
 }

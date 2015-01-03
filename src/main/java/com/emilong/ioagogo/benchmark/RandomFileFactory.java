@@ -13,6 +13,7 @@ import java.util.Random;
 public class RandomFileFactory implements IFileFactory {
   private static final String PREFIX = "ioagogo";
   private static final String SUFFIX = ".bin";
+  private static final int BUFFER_SIZE = 1 << 16;
 
   private final File file;
   private final Random random = new Random();
@@ -23,13 +24,19 @@ public class RandomFileFactory implements IFileFactory {
     */
   public RandomFileFactory(int fileSize, File directory) throws IOException {
     file = File.createTempFile(PREFIX, SUFFIX, directory);
+    byte[] buffer = new byte[BUFFER_SIZE];
 
     FileOutputStream outputStream = null;
 
     try {
       outputStream = new FileOutputStream(file);
-      for (int i = 0; i < fileSize; i++) {
-        outputStream.write(random.nextInt(256) & 0xFF);
+
+      for (int written = 0; written < fileSize;) {
+        int thisChunk = Math.min(BUFFER_SIZE, fileSize - written);
+        random.nextBytes(buffer);
+        outputStream.write(buffer, 0, thisChunk);
+
+        written += thisChunk;
       }
     } finally {
       if (outputStream != null) {

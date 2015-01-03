@@ -34,4 +34,9 @@ public class FileInputStreamWithByteReadsStrategy implements IReadStrategy {
 
     return buffer;
   }
+
+  @Override
+  public String getDescription() {
+    return "FileInputStream with byte reads";
+  }
 }

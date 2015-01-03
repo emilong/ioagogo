@@ -23,4 +23,9 @@ public class FakeReadStrategy implements IReadStrategy {
   public byte[] readBytes(int bufferSize, File file) throws IOException {
     return new byte[bufferSize];
   }
+
+  @Override
+  public String getDescription() {
+    return "Fake";
+  }
 }

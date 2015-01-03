@@ -32,4 +32,9 @@ public class FileInputStreamWithByteArrayReadsStrategy implements IReadStrategy 
 
     return buffer;
   }
+
+  @Override
+  public String getDescription() {
+    return "FileInputStream with byte array reads";
+  }
 }

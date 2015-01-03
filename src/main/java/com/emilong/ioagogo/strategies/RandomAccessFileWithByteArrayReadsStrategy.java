@@ -32,4 +32,9 @@ public class RandomAccessFileWithByteArrayReadsStrategy implements IReadStrategy
 
     return buffer;
   }
+
+  @Override
+  public String getDescription() {
+    return "RandomAccessFile with byte array reads";
+  }
 }

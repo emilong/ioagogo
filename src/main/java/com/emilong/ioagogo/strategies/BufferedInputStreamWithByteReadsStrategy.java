@@ -35,4 +35,9 @@ public class BufferedInputStreamWithByteReadsStrategy implements IReadStrategy {
 
     return buffer;
   }
+
+  @Override
+  public String getDescription() {
+    return "BufferedInputStream with byte reads";
+  }
 }

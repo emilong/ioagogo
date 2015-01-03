@@ -33,4 +33,9 @@ public class FileChannelWithWrappedByteBufferStrategy
       return buffer;
     }
   }
+
+  @Override
+  public String getDescription() {
+    return "FileChannel with ByteBuffer wrapped byte array";
+  }
 }
