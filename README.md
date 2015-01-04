@@ -19,6 +19,10 @@ Run it with
 
 # Sample runs
 
+The following runs are of a 256MB file.
+
+## Mac OS X, with Oracle Java
+
 Mac OSX 10.10.1, Mac Mini Server (Mid 2011), on a spinning, SATA disk,
 with Oracle Java 1.8.0\_25-b17, 64-Bit server VM:
 
@@ -28,6 +32,19 @@ with Oracle Java 1.8.0\_25-b17, 64-Bit server VM sample run](https://cdn.rawgit.
 This run suggests that using a direct-allocated ByteBuffer with
 FileChannel reads of at least 32KB, but no more than 2MB is your best
 bet on this system.
+
+## Android 4.4.4, Samsung Galaxy S4 (SGH-M919)
+
+![Android 4.4.4, Samsung Galaxy S4 (SGH-M919)](https://cdn.rawgit.com/emilong/ioagogo/master/samples/Android-4.4.4-Samsung-SGH-M919.svg)
+
+This run was conducted on the built-in storage of a US Samsung Galaxy
+S4. It omits the "FileChannel with MappedByteBuffer" strategy as this
+one ran out of memory quickly, failing with ENOMEM in a JNI call. The
+other strategies failed to allocate 64MB and larger buffers, so those
+are also omitted. This run suggests that all strategies are effectively
+equivalent, so long as you use an 8KB buffer. There seem to be slight
+benefits (~5%) in using a 4MB buffer. These runs showed fairly high
+variability, so YMMV.
 
 # Acknowledgements
 
